@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => 'triet2d',
-	'database' => 'programming_perks',
+	'hostname' => getenv('IP'),
+	'username' => getenv('C9_USER'),
+	'password' => '',
+	'database' => 'grocery_crud',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
