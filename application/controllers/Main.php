@@ -72,7 +72,7 @@ class Main extends CI_Controller {
     {
         $this->grocery_crud->set_theme('datatables');
         $this->grocery_crud->set_table('sample_table');
-        $crud->unset_columns('content');
+        // $crud->unset_columns('content');
         $output = $this->grocery_crud->render();
         $this->_custom_output($output);
     }

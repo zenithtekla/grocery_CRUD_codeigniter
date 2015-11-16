@@ -1,0 +1,151 @@
+/* my site */
+#displayCSS, code {
+  font-family: Monaco, 'Liberation Mono', 'Ubuntu Mono', Menlo, Consolas, Roboto, monospace;
+  /*font-family: Roboto, "Segoe UI", Calibri, 'Helvetica Neue', Helvetica, Arial, sans-serif;*/
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#displayCSS td, #displayCSS th {
+  font-size: 1em;
+  border: 1px solid #98bf21;
+  padding: 3px 7px 2px 7px;
+}
+
+#displayCSS th {
+    font-size: 1.1em;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 4px;
+    background-color: #A7C942;
+    color: #ffffff;
+}
+
+#displayCSS tr.alt td {
+  color: #000000;
+  background-color: #EAF2D3;
+}
+.container {
+  padding-top:0.2%;
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+}
+pre {
+  max-height: 80%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#displayCSS pre {
+  white-space: pre-wrap !important;       /* CSS 3 */
+  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;      /* Opera 4-6 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+.span-alt{
+}
+.line-alt1{
+  background-color: #E2E4FF;
+  display: block;
+}
+.line-alt2{
+  display: block;
+}
+
+/* site theme */
+/* ---------- */
+
+.typeahead,
+.tt-query,
+.tt-hint {
+  width: 396px;
+  height: 1%;
+  padding: 8px 12px;
+  font-size: 24px;
+  line-height: 30px;
+  border: 2px solid #ccc;
+  -webkit-border-radius: 8px;
+     -moz-border-radius: 8px;
+          border-radius: 8px;
+  outline: none;
+}
+
+.typeahead {
+  background-color: #fff;
+}
+
+.typeahead:focus {
+  border: 2px solid #0097cf;
+}
+
+.tt-query {
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.tt-hint {
+  color: #999
+}
+
+.tt-menu {
+  width: 422px;
+  margin: 12px 0;
+  padding: 8px 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 8px;
+     -moz-border-radius: 8px;
+          border-radius: 8px;
+  -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+     -moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+          box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+
+.tt-suggestion {
+  padding: 3px 20px;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.tt-suggestion:hover {
+  cursor: pointer;
+  color: #fff;
+  background-color: #0097cf;
+}
+
+.tt-suggestion.tt-cursor {
+  color: #fff;
+  background-color: #0097cf;
+
+}
+
+.tt-suggestion p {
+  margin: 0;
+}
+
+.gist {
+  font-size: 14px;
+}
+
+/* example specific styles */
+/* ----------------------- */
+
+#multiple-datasets .league-name {
+  margin: 0 20px 5px 20px;
+  padding: 3px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+#rtl-support .tt-menu {
+  text-align: right;
+}
+
+input[type="checkbox"] {
+  width:32px;
+  height:32px;
+}

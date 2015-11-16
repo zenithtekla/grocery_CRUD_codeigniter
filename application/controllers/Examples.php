@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<link href="../assets/grocery_crud/texteditor/ckeditor/plugins/codesnippet/lib/highlight/styles/default.css" rel="stylesheet">
+	
 </head>
 <body>
 
