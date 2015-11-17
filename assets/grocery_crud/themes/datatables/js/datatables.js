@@ -19,7 +19,7 @@ var aButtons = [];
 var mColumns = [];
 
 $(document).ready(function() {
-
+	
 	$('table.groceryCrudTable thead tr th').each(function(index){
 		if(!$(this).hasClass('actions'))
 		{

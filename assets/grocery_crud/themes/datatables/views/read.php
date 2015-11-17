@@ -52,6 +52,9 @@
 			<div class='form-button-box'>
 				<input type='button' value='<?php echo $this->l('form_back_to_list'); ?>' class='ui-input-button back-to-list' id="cancel-button" />
 			</div>
+			<div class='form-button-box'>
+				<input type='button' value='<?php echo $this->l('form_edit'); ?>' class='ui-input-button back-to-list' id="edit-button" />
+			</div>
 			<div class='clear'></div>
 		</div>
 	</form>
@@ -63,4 +66,16 @@
 
 	var message_alert_edit_form = "<?php echo $this->l('alert_edit_form')?>";
 	var message_update_error = "<?php echo $this->l('update_error')?>";
+</script>
+<script type="text/javascript">
+	$(function(){
+		$("#edit-button").on('click', function(){
+		// var pathname = window.location.pathname; // Returns path only
+		var url      = window.location.href;     // Returns full URL or $(location).attr('href')
+		var value = url.substring(url.lastIndexOf('/') + 1); // return entry(row) number
+		
+		var base_url = url.substring(0,url.lastIndexOf('/')-5) + '//edit//';
+		window.location = base_url + value;
+	});
+	});
 </script>
