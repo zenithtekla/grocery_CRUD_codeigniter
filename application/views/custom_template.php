@@ -97,7 +97,7 @@ a:hover
     <div>
         <select id="select-theme" class="typeahead">
             <option value="monokai_sublime">monokai_sublime</option>
-            <option value="default">default</option>
+            <option value="default" selected="selected">default</option>
             <option value="arta">arta</option>
             <option value="ascetic">ascetic</option>
             <option value="atelier-dune.dark">atelier-dune.dark</option>

@@ -57,10 +57,12 @@
 	/* Added in version 1.2.2 */
 	$lang['form_save_and_go_back']	= 'Save and go back to list';
 	$lang['form_update_and_go_back']= 'Update and go back to list';
+	$lang['form_update_and_view_back']= 'Update and back to view';
 
 	/* Added in version 1.2.2 */
 	$lang['form_save_and_go_back']	= 'Save and go back to list';
 	$lang['form_update_and_go_back']= 'Update and go back to list';
+	$lang['form_update_and_view_back']= 'Update and back to view';
 
 	/* Upload functionality */
 	$lang['string_delete_file'] 	= "Deleting file";

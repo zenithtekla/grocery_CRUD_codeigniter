@@ -44,7 +44,7 @@ class Main extends CI_Controller {
     {
         try{
             $crud = new grocery_CRUD();
-            $crud->set_theme('datatables');
+            $crud->set_theme('twitter-bootstrap');
             $crud->set_table('offices');
             $crud->set_subject('Office');
             $crud->required_fields('city');
@@ -68,12 +68,21 @@ class Main extends CI_Controller {
             $output = $crud->render();
             $this->_example_output($output);
     }
+    
+    /*function editbutton(){
+        return site_url('Main/sample_table/edit'. $row->$primary_key);
+    }*/
+    
     public function sample_table()
     {
-        $this->grocery_crud->set_theme('datatables');
-        $this->grocery_crud->set_table('sample_table');
-        // $crud->unset_columns('content');
-        $output = $this->grocery_crud->render();
+        $crud = new grocery_CRUD();
+        $crud->set_theme('datatables');
+        $crud->set_table('sample_table');
+        $crud->add_fields('thread', 'subject', 'content');
+        $crud->edit_fields('thread', 'subject', 'content');
+        $crud->required_fields('thread', 'subject', 'content');
+        $crud->unset_texteditor('date_entered');
+        $output = $crud->render();
         $this->_custom_output($output);
     }
     function _custom_output($output = null)

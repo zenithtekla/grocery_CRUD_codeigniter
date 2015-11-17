@@ -1,6 +1,7 @@
 $(function(){
 
 	var save_and_close = false;
+	var save_and_go_back_to_view = false;
 
 	var reload_datagrid = function () {
 		$('.refresh-data').trigger('click');
@@ -8,6 +9,12 @@ $(function(){
 
 	$('#save-and-go-back-button').click(function(){
 		save_and_close = true;
+
+		$('#crudForm').trigger('submit');
+	});
+	
+	$('#save-and-go-back-to-view-button').click(function(){
+		save_and_go_back_to_view = true;
 
 		$('#crudForm').trigger('submit');
 	});
@@ -39,6 +46,20 @@ $(function(){
 								{
 									if ($('#save-and-go-back-button').closest('.ui-dialog').length === 0) {
 										window.location = data.success_list_url;
+									} else {
+										$(".ui-dialog-content").dialog("close");
+										success_message(data.success_message);
+										reload_datagrid();
+									}
+
+									return true;
+								}
+								
+								if(save_and_go_back_to_view)
+								{
+									if ($('#save-and-go-back-to-view-button').closest('.ui-dialog').length === 0) {
+										console.log(data);
+										window.location = data.success_read_url;
 									} else {
 										$(".ui-dialog-content").dialog("close");
 										success_message(data.success_message);
