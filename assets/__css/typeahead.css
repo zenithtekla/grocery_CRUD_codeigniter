@@ -37,6 +37,10 @@ pre {
   overflow-x: hidden;
 }
 
+.hljs .source{
+  overflow: hidden !important;
+}
+
 #displayCSS pre {
   white-space: pre-wrap !important;       /* CSS 3 */
   white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */

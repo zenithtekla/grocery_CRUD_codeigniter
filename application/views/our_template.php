@@ -48,7 +48,7 @@ a:hover
  
     </div>
 <!-- Beginning footer -->
-<div>Footer</div>
+<div>ZeTek 2015</div>
 <!-- End of Footer -->
 </body>
 </html>

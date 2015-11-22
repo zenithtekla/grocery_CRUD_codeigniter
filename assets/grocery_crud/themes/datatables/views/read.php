@@ -74,8 +74,9 @@
 		var url      = window.location.href;     // Returns full URL or $(location).attr('href')
 		var value = url.substring(url.lastIndexOf('/') + 1); // return entry(row) number
 		
-		var base_url = url.substring(0,url.lastIndexOf('/')-5) + '//edit//';
+		var base_url = url.substring(0,url.lastIndexOf('/')-5) + '/edit/';
 		window.location = base_url + value;
 	});
 	});
 </script>
+<script src="../../../../assets/grocery_crud/texteditor/ckeditor/plugins/spoiler/css/spoiler.css"></script>

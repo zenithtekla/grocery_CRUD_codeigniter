@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <link href="<?php echo base_url();?>assets/__css/typeahead.css" rel="stylesheet">
     <!--<link href="<?php echo base_url();?>assets/grocery_crud/texteditor/ckeditor/plugins/codesnippet/lib/highlight/styles/default.css" rel="stylesheet">-->
@@ -24,6 +24,12 @@
                 $("head").append($("<link href="+ $t_href + " type='text/css' rel='stylesheet'/>"));
             }
         }).change();
+        
+        /*$("code").on('click', function() {
+            $(this).addClass('source');
+            $(this).append('<textarea>'+ $(this).text() + '</textarea>');
+            $('textarea', this).selText().addClass("selected");
+        });*/
         
         var toggleStrip = function(boo){
             var arr = $("pre").html().split('\n');
@@ -48,7 +54,15 @@
                 });
             
             console.log($("code").html());
-            } else    window.location.reload();
+            } else    
+                // window.location.reload();
+            {
+                var arr = $("pre").html().split('\n');
+                $("code").html(function (data) {
+                    console.log(data);
+                    return $(this).html().replace('\n', '');
+                });
+            }
             // $('.span-alt, .line-alt1, .line-alt2, code div, pre table').contents().unwrap();
         };
         

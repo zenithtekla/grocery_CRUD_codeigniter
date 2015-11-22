@@ -28,6 +28,17 @@ div.DTTT_container
 .ui-input-button
 {
 	font-size: 15px !important;	
+	
+}
+.ui-primary-button
+{
+	color:#337ab7 !important;
+	font-weight:bold !important;
+}
+.ui-success-button
+{
+	color:#3c763d !important;
+	font-weight:bold !important;
 }
 .form-content
 {

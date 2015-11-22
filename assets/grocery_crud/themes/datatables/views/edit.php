@@ -55,10 +55,10 @@
 			</div>
 			<?php 	if(!$this->unset_back_to_list) { ?>
 			<div class='form-button-box'>
-				<input type='button' value='<?php echo $this->l('form_update_and_view_back'); ?>' class='ui-input-button' id="save-and-go-back-to-view-button"/>
+				<input type='button' value='<?php echo $this->l('form_update_and_view_back'); ?>' class='ui-input-button ui-primary-button' id="save-and-go-back-to-view-button"/>
 			</div>
 			<div class='form-button-box'>
-				<input type='button' value='<?php echo $this->l('form_update_and_go_back'); ?>' class='ui-input-button' id="save-and-go-back-button"/>
+				<input type='button' value='<?php echo $this->l('form_update_and_go_back'); ?>' class='ui-input-button ui-success-button' id="save-and-go-back-button"/>
 			</div>
 			<div class='form-button-box'>
 				<input type='button' value='<?php echo $this->l('form_cancel'); ?>' class='ui-input-button' id="cancel-button" />

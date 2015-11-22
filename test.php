@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Export</title>
     <link href="assets/__css/typeahead.css" rel="stylesheet">
     <script src="assets/grocery_crud/texteditor/ckeditor/plugins/codesnippet/lib/highlight/highlight.pack.js"></script>
@@ -20,6 +20,10 @@
                 var $t_href = $t_css_link + this.value + ".css";
                 $("head").append($("<link rel='stylesheet' href="+ $t_href + " type='text/css' media='screen' />"));
             }).change();
+            
+            $("code").on('dblclick', function() {
+                $(this).parent().selText().addClass("selected");
+            });
             
             var toggleStrip = function(boo){
                 var arr = $("pre").html().split('\n'); // $('pre').html().match(/\n/) or $('pre').html().split(/\n/).length http://stackoverflow.com/a/5545531
