@@ -1,6 +1,6 @@
 /* my site */
 #displayCSS, code {
-  font-family: Monaco, 'Liberation Mono', 'Ubuntu Mono', Menlo, Consolas, Roboto, monospace;
+  font-family: 'Liberation Mono', 'Ubuntu Mono', Consolas, Menlo, Monaco, Roboto, monospace;
   /*font-family: Roboto, "Segoe UI", Calibri, 'Helvetica Neue', Helvetica, Arial, sans-serif;*/
   width: 100%;
   border-collapse: collapse;
@@ -152,4 +152,54 @@ pre {
 input[type="checkbox"] {
   width:32px;
   height:32px;
+}
+
+/* blockquote css-tricks.com */
+blockquote {
+  padding: 0 20px;
+  margin: 0 0 0 20px;
+  /*font-size: 1.1em;*/
+  border-left: 5px solid #eee;
+}
+blockquote p:last-child,
+blockquote ul:last-child,
+blockquote ol:last-child {
+  margin-bottom: 0;
+}
+blockquote footer,
+blockquote small,
+blockquote .small {
+  display: block;
+  font-size: 80%;
+  line-height: 1.42857143;
+  color: #777;
+}
+blockquote footer:before,
+blockquote small:before,
+blockquote .small:before {
+  content: '\2014 \00A0';
+}
+.blockquote-reverse,
+blockquote.pull-right {
+  padding-right: 15px;
+  padding-left: 0;
+  text-align: right;
+  border-right: 5px solid #eee;
+  border-left: 0;
+}
+.blockquote-reverse footer:before,
+blockquote.pull-right footer:before,
+.blockquote-reverse small:before,
+blockquote.pull-right small:before,
+.blockquote-reverse .small:before,
+blockquote.pull-right .small:before {
+  content: '';
+}
+.blockquote-reverse footer:after,
+blockquote.pull-right footer:after,
+.blockquote-reverse small:after,
+blockquote.pull-right small:after,
+.blockquote-reverse .small:after,
+blockquote.pull-right .small:after {
+  content: '\00A0 \2014';
 }

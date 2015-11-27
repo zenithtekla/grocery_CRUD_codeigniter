@@ -8,4 +8,8 @@ CKEDITOR.editorConfig = function( config ) {
 	// config.language = 'fr';
 	// config.uiColor = '#AADC6E';
 	// config.allowedContent = true;
+	config.extraPlugins = 'glyphicons';
+	config.contentsCss = 'plugins/glyphicons/bootstrap/css/bootstrap.css';
+	config.allowedContent = true;
+	config.extraPlugins = 'spoiler';
 };

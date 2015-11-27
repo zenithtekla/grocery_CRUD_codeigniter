@@ -4,8 +4,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <link href="<?php echo base_url();?>assets/__css/typeahead.css" rel="stylesheet">
+    <link href="<?php echo base_url();?>assets/grocery_crud/texteditor/ckeditor/plugins/spoiler/css/spoiler.css" rel="stylesheet">
+    <link href="<?php echo base_url();?>assets/grocery_crud/texteditor/ckeditor/plugins/widgetbootstrap/contents.css" rel="stylesheet">
     <!--<link href="<?php echo base_url();?>assets/grocery_crud/texteditor/ckeditor/plugins/codesnippet/lib/highlight/styles/default.css" rel="stylesheet">-->
     <script src="<?php echo base_url();?>assets/grocery_crud/texteditor/ckeditor/plugins/codesnippet/lib/highlight/highlight.pack.js"></script>
+    <script src="<?php echo base_url();?>assets/grocery_crud/texteditor/ckeditor/plugins/spoiler/js/spoiler.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
     <script type="text/javascript">
     $(function(){
@@ -21,7 +24,8 @@
                 var $t_css_link = "<?php echo base_url();?>assets/grocery_crud/texteditor/ckeditor/plugins/codesnippet/lib/highlight/styles/";
                 // $('select').selectedIndex = this.index;
                 var $t_href = $t_css_link + $(this).val() + ".css"; // this.value works too
-                $("head").append($("<link href="+ $t_href + " type='text/css' rel='stylesheet'/>"));
+                $("head").children("[hj='highlight']").remove();
+                $("head").append($("<link href="+ $t_href + " hj='highlight' type='text/css' rel='stylesheet'/>"));
             }
         }).change();
         
@@ -69,6 +73,10 @@
         $('input:checkbox').on('change', function(data){
             toggleStrip($(this).is(":checked"));
         });
+        
+        setTimeout(function() {
+            $('#foo').show('slow');
+        }, 1000);
     });
     </script>
     <style type="text/css">
@@ -76,6 +84,9 @@
             max-height: 80%;
             overflow-y: auto;
             overflow-x: hidden;
+        }
+        #foo {
+            display: none;
         }
     </style>
 <?php 
@@ -164,7 +175,7 @@ a:hover
         <?php echo $output; ?> 
     </div>
 <!-- Beginning footer -->
-<div>Footer</div>
+<div id="foo">ZeTek</div>
 <!-- End of Footer -->
 </body>
 </html>

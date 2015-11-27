@@ -6,6 +6,8 @@
     <link href="assets/__css/typeahead.css" rel="stylesheet">
     <script src="assets/grocery_crud/texteditor/ckeditor/plugins/codesnippet/lib/highlight/highlight.pack.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link href="assets/grocery_crud/texteditor/ckeditor/plugins/spoiler/css/spoiler.css" rel="stylesheet">
+    <script src="assets/grocery_crud/texteditor/ckeditor/plugins/spoiler/js/spoiler.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
     <script type="text/javascript">
         $(function(){
@@ -18,7 +20,8 @@
                 // console.log( $( "select option:selected" ).index() ); // or $( "#select-theme option:selected" )
                 var $t_css_link = "assets/grocery_crud/texteditor/ckeditor/plugins/codesnippet/lib/highlight/styles/";
                 var $t_href = $t_css_link + this.value + ".css";
-                $("head").append($("<link rel='stylesheet' href="+ $t_href + " type='text/css' media='screen' />"));
+                $("head").children("[hj='highlight']").remove();
+                $("head").append($("<link rel='stylesheet' href="+ $t_href + " hj='highlight' type='text/css' media='screen' />"));
             }).change();
             
             $("code").on('dblclick', function() {
@@ -53,7 +56,7 @@
 <div class="container">
 <select id="select-theme" class="typeahead">
     <option value="monokai_sublime">monokai_sublime</option>
-    <option value="default" selected="selected">default</option>
+    <option value="default">default</option>
     <option value="arta">arta</option>
     <option value="ascetic">ascetic</option>
     <option value="atelier-dune.dark">atelier-dune.dark</option>
@@ -72,7 +75,7 @@
     <option value="far">far</option>
     <option value="foundation">foundation</option>
     <option value="github">github</option>
-    <option value="googlecode">googlecode</option>
+    <option value="googlecode" selected="selected">googlecode</option>
     <option value="idea">idea</option>
     <option value="ir_black">ir_black</option>
     <option value="magula">magula</option>
