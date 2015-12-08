@@ -79,4 +79,30 @@
 	});
 	});
 </script>
-<script src="../../../../assets/grocery_crud/texteditor/ckeditor/plugins/spoiler/css/spoiler.css"></script>
+<link rel="stylesheet" href="../../../../assets/grocery_crud/texteditor/ckeditor/plugins/spoiler/css/spoiler.css" type="text/css" />
+
+<!--(function(){
+src="jquery-1.11.1.min.js"
+src="jquery.mobile-1.4.5.min.js"
+src="key.js"
+   window.onload = function(){
+      var URL = "http://www.flysfo.com/api/airlines.json?limit=100&key="
+      URL += KEY;
+
+      $.ajax({
+         dataType: "json",
+         url: URL,
+         success: success
+      });
+   }
+
+   function success(e){
+      var result ="";
+      $.each(e, function(i,v){
+         result += "<p><img src ='http:" + value.image + "'/></p>";
+         result += "<p>" + value.phone + "</p>";
+         result += value.body;
+         result += "<div style = ' border-bottom: 1px solid black;'></div>";
+      });
+      $('#result').html(result);
+})();-->

@@ -10,21 +10,23 @@
     <script src="assets/grocery_crud/texteditor/ckeditor/plugins/spoiler/js/spoiler.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
     <script type="text/javascript">
+    <!-- Hide Javascript
         $(function(){
             $('select option').each(function() {
                 if ($( this ).index() % 2 == 1)
                     $( this ).css({"background-color":"#F0F0F0"});
             });
             
-            $('select').on('change', function() {
+            $("#select-theme").on('change', function() {
                 // console.log( $( "select option:selected" ).index() ); // or $( "#select-theme option:selected" )
                 var $t_css_link = "assets/grocery_crud/texteditor/ckeditor/plugins/codesnippet/lib/highlight/styles/";
-                var $t_href = $t_css_link + this.value + ".css";
-                $("head").children("[hj='highlight']").remove();
-                $("head").append($("<link rel='stylesheet' href="+ $t_href + " hj='highlight' type='text/css' media='screen' />"));
+                $("head").children("[hj='highlight']").remove(); // http://stackoverflow.com/a/3896988
+                $t_css_link += $(this).val() + ".css";
+                $("head").append("<link rel='stylesheet' href="+ $t_css_link + " type='text/css' hj='highlight' media='screen' />");
             }).change();
             
-            $("code").on('dblclick', function() {
+            $("code").on('dblclick', function(e) {
+                e.preventDefault();
                 $(this).parent().selText().addClass("selected");
             });
             
@@ -47,6 +49,7 @@
                 toggleStrip($(this).is(":checked"));
             });
         });
+    -->
     </script>
     <style type="text/css">
         

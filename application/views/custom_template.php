@@ -25,7 +25,7 @@
                 // $('select').selectedIndex = this.index;
                 var $t_href = $t_css_link + $(this).val() + ".css"; // this.value works too
                 $("head").children("[hj='highlight']").remove();
-                $("head").append($("<link href="+ $t_href + " hj='highlight' type='text/css' rel='stylesheet'/>"));
+                $("head").append("<link href="+ $t_href + " hj='highlight' type='text/css' rel='stylesheet'/>");
             }
         }).change();
         

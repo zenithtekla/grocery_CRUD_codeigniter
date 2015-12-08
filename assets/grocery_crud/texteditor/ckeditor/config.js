@@ -8,8 +8,10 @@ CKEDITOR.editorConfig = function( config ) {
 	// config.language = 'fr';
 	// config.uiColor = '#AADC6E';
 	// config.allowedContent = true;
+	config.removeFormatTags = 'script,code,del,dfn,em,font,ins,kbd,pre';
+	config.removeFormatAttributes = 'script,code,del,dfn,em,font,ins,kbd,pre';
+	config.ProtectedTags = 'script,code,del,dfn,em,font,ins,kbd,pre';
 	config.extraPlugins = 'glyphicons';
-	config.contentsCss = 'plugins/glyphicons/bootstrap/css/bootstrap.css';
 	config.allowedContent = true;
 	config.extraPlugins = 'spoiler';
 };

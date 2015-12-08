@@ -79,3 +79,7 @@
 	var message_alert_edit_form = "<?php echo $this->l('alert_edit_form')?>";
 	var message_update_error = "<?php echo $this->l('update_error')?>";
 </script>
+<script>
+UPLOADCARE_PUBLIC_KEY = 'your_public_key';
+</script>
+<link rel="stylesheet" href="../../../../assets/grocery_crud/texteditor/ckeditor/plugins/glyphicons/bootstrap/css/bootstrap.css" type="text/css" />
