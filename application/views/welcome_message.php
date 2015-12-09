@@ -78,6 +78,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		<p>The corresponding controller for this page is found at:</p>
 		<code>application/controllers/Welcome.php</code>
+		<pre><?php 
+		$my_txt = <<<EOT		
+<pre>
+<code class="language-javascript">`
+src="jquery-1.11.1.min.js"
+src="jquery.mobile-1.4.5.min.js"
+src="key.js"
+   window.onload = function(){
+      var URL = "http://www.flysfo.com/api/airlines.json?limit=100&amp;key="
+      URL += KEY;
+
+      $.ajax({
+         dataType: "json",
+         url: URL,
+         success: success
+      });
+   }
+
+   function success(e){
+      var result ="";
+      $.each(e, function(i,v){
+         result += "&lt;p&gt;&lt;img src ='http:" + value.image + "'/&gt;&lt;/p&gt;";
+         result += "&lt;p&gt;" + value.phone + "&lt;/p&gt;";
+         result += value.body;
+         result += "&lt;div style = ' border-bottom: 1px solid black;'&gt;&lt;/div&gt;";
+      });
+      $('#result').html(result);
+</code></pre>
+EOT;
+		echo htmlspecialchars($my_txt);?></pre>
 
 		<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="user_guide/">User Guide</a>.</p>
 	</div>

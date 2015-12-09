@@ -10,8 +10,8 @@ CKEDITOR.editorConfig = function( config ) {
 	// config.allowedContent = true;
 	config.removeFormatTags = 'script,code,del,dfn,em,font,ins,kbd,pre';
 	config.removeFormatAttributes = 'script,code,del,dfn,em,font,ins,kbd,pre';
-	config.ProtectedTags = 'script,code,del,dfn,em,font,ins,kbd,pre';
+	config.protectedTags = 'script,code,del,dfn,em,font,ins,kbd,pre';
 	config.extraPlugins = 'glyphicons';
-	config.allowedContent = true;
 	config.extraPlugins = 'spoiler';
+	config.enterMode = CKEDITOR.ENTER_BR;
 };

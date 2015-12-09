@@ -1,5 +1,5 @@
 <?php
-
+	header('Content-type: text/html; charset=utf-8');
 	$this->set_css($this->default_theme_path.'/datatables/css/datatables.css');
 
     $this->set_js_lib($this->default_javascript_path.'/jquery_plugins/jquery.form.min.js');

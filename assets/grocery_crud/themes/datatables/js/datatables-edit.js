@@ -58,7 +58,6 @@ $(function(){
 								if(save_and_go_back_to_view)
 								{
 									if ($('#save-and-go-back-to-view-button').closest('.ui-dialog').length === 0) {
-										console.log(data);
 										window.location = data.success_read_url;
 									} else {
 										$(".ui-dialog-content").dialog("close");
