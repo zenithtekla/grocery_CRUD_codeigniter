@@ -16,7 +16,7 @@
                 if ($( this ).index() % 2 == 1)
                     $( this ).css({"background-color":"#F0F0F0"});
             });
-            
+
         $('select').on({
             change: function() {
                 // console.log($('select > option:last').val());
@@ -28,13 +28,13 @@
                 $("head").append("<link href="+ $t_href + " hj='highlight' type='text/css' rel='stylesheet'/>");
             }
         }).change();
-        
+
         /*$("code").on('click', function() {
             $(this).addClass('source');
             $(this).append('<textarea>'+ $(this).text() + '</textarea>');
             $('textarea', this).selText().addClass("selected");
         });*/
-        
+
         var toggleStrip = function(boo){
             var arr = $("pre").html().split('\n');
             if (boo){
@@ -56,9 +56,9 @@
                         return $(this).html().replace('\n', '');
                     });
                 });
-            
+
             console.log($("code").html());
-            } else    
+            } else
                 // window.location.reload();
             {
                 var arr = $("pre").html().split('\n');
@@ -69,11 +69,11 @@
             }
             // $('.span-alt, .line-alt1, .line-alt2, code div, pre table').contents().unwrap();
         };
-        
+
         $('input:checkbox').on('change', function(data){
             toggleStrip($(this).is(":checked"));
         });
-        
+
         setTimeout(function() {
             $('#foo').show('slow');
         }, 1000);
@@ -89,16 +89,16 @@
             display: none;
         }
     </style>
-<?php 
+<?php
 foreach($css_files as $file): ?>
     <link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />
- 
+
 <?php endforeach; ?>
 <?php foreach($js_files as $file): ?>
- 
+
     <script src="<?php echo $file; ?>"></script>
 <?php endforeach; ?>
- 
+
 <style type='text/css'>
 body
 {
@@ -117,7 +117,7 @@ a:hover
 </style>
 </head>
 <body>
-    
+
 <!-- Beginning header <a href='<?php echo site_url('examples/offices_management')?>'>Offices</a> |  -->
     <div>
         <select id="select-theme" class="typeahead">
@@ -170,9 +170,9 @@ a:hover
 
     </div>
 <!-- End of header-->
-    <div style='height:20px;'></div>  
+    <div style='height:20px;'></div>
     <div>
-        <?php echo $output; ?> 
+        <?php if(isset($output)) echo $output; ?>
     </div>
 <!-- Beginning footer -->
 <div id="foo">ZeTek</div>

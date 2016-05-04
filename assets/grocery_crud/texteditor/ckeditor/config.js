@@ -14,4 +14,6 @@ CKEDITOR.editorConfig = function( config ) {
 	config.extraPlugins = 'glyphicons';
 	config.extraPlugins = 'spoiler';
 	config.enterMode = CKEDITOR.ENTER_BR;
+	config.editingBlock = false;
+	config.basicEntities = false;
 };

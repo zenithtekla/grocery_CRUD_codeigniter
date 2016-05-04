@@ -294,7 +294,7 @@ class grocery_CRUD_Field_Types
 					list($year,$month,$day) = explode("-",$value);
 					list($hours,$minutes) = explode(":",substr($value,11));
 
-					$value = date($this->php_date_format." - H:i", mktime ((int)$hours , (int)$minutes , 0, (int)$month , (int)$day ,(int)$year));
+					$value = date($this->php_date_format." H:i", mktime ((int)$hours , (int)$minutes , 0, (int)$month , (int)$day ,(int)$year));
 				}
 				else
 				{
