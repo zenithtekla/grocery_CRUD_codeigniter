@@ -79,7 +79,7 @@ class Main extends CI_Controller {
         $crud->set_theme('datatables');
         $crud->set_table('sample_table');
         $crud->add_fields('thread', 'subject', 'content');
-        $crud->columns('thread', 'subject', 'content', 'date_entered', 'time_stamp', 'ui_timestamp');
+        $crud->columns('thread', 'subject', 'content', 'date_entered', 'time_stamp');
         $crud->callback_column('ui_timestamp',array($this,'_date2UNIX'));
         $crud->edit_fields('thread', 'subject', 'content');
         $crud->required_fields('thread', 'subject', 'content');
