@@ -79,8 +79,8 @@ class Main extends CI_Controller {
         $crud->set_theme('datatables');
         $crud->set_table('sample_table');
         $crud->add_fields('thread', 'subject', 'content');
-        $crud->columns('thread', 'subject', 'content', 'date_entered', 'time_stampp');
-        $crud->callback_column('time_stampp',array($this,'date2UNIX'));
+        $crud->columns('thread', 'subject', 'content', 'date_entered', 'time_stamp', 'ui_timestamp');
+        $crud->callback_column('ui_timestamp',array($this,'_date2UNIX'));
         $crud->edit_fields('thread', 'subject', 'content');
         $crud->required_fields('thread', 'subject', 'content');
         $crud->unset_texteditor('date_entered');
@@ -88,7 +88,7 @@ class Main extends CI_Controller {
         $output = $crud->render();
         $this->_custom_output($output);
     }
-    function date2UNIX($value, $row)
+    function _date2UNIX($value, $row)
     {
         return strtotime($row->date_entered);
         // return strtotime(str_replace('/', '-', $row->date_entered));
