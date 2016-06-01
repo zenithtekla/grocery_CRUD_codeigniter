@@ -3,13 +3,15 @@ class Main extends CI_Controller {
     function __construct()
     {
         parent::__construct();
+        date_default_timezone_set('America/Los_Angeles');
         $this->load->database();
         $this->load->helper('url');
         $this->load->library('grocery_CRUD');
+        $this->load->helper('date');
     }
     public function index()
     {
-        $this->_example_output((object)array('output' => '' , 'js_files' => array() , 'css_files' => array()));
+        $this->_example_output((object) array('output' => '' , 'js_files' => array() , 'css_files' => array()));
     }
     public function employees()
     {
@@ -75,18 +77,26 @@ class Main extends CI_Controller {
     
     public function sample_table()
     {
-        $crud = new grocery_CRUD();
-        $crud->set_theme('datatables');
-        $crud->set_table('sample_table');
-        $crud->add_fields('thread', 'subject', 'content');
-        $crud->columns('thread', 'subject', 'content', 'date_entered', 'time_stamp');
-        $crud->callback_column('ui_timestamp',array($this,'_date2UNIX'));
-        $crud->edit_fields('thread', 'subject', 'content');
-        $crud->required_fields('thread', 'subject', 'content');
-        $crud->unset_texteditor('date_entered');
-        $crud->unset_texteditor('time_stamp');
-        $output = $crud->render();
-        $this->_custom_output($output);
+        try{
+            $crud = new grocery_CRUD();
+            $crud->set_theme('datatables');
+            $crud->set_table('sample_table');
+            $crud->add_fields('thread', 'subject', 'content');
+            $crud->columns('thread', 'subject', 'content', 'date_entered', 'time_stamp');
+            $crud->callback_column('ui_timestamp',array($this,'_date2UNIX'));
+            $crud->edit_fields('thread', 'subject', 'content');
+            $crud->required_fields('thread', 'subject', 'content');
+            $crud->unset_texteditor('date_entered');
+            $crud->unset_texteditor('time_stamp');
+            $crud->unset_read_fields('time_stamp');
+            $output = $crud->render();
+            
+            /*html_script var json = "</?php echo json_encode($output, JSON_PRETTY_PRINT) /?>";
+            console.log(json);*/
+            $this->_custom_output($output);
+        }catch(Exception $e){
+            show_error($e->getMessage().' --- '.$e->getTraceAsString());
+        }
     }
     function _date2UNIX($value, $row)
     {
@@ -96,6 +106,32 @@ class Main extends CI_Controller {
     function _custom_output($output = null)
     {
         $this->load->view('custom_template.php',$output);
+    }
+    
+    public function user_login(){
+        $crud = new grocery_CRUD();
+        $crud->set_theme('datatables');
+        $crud->set_table('sample_table');
+        $output = $crud->render(); // simply render to load js_files and css_files
+        $this->_login_output($output);
+    }
+    
+    function _login_output($output = null)
+    {
+        $this->load->view('login_page.php',$output);
+    }
+    
+    public function all_data(){
+        $crud = new grocery_CRUD();
+        $crud->set_theme('datatables');
+        $crud->set_table('sample_table');
+        $output = $crud->render(); // simply render to load js_files and css_files
+        $this->all_view_out($output);
+    }
+    
+    function all_view_out($output = null)
+    {
+        $this->load->view('test.php',$output);
     }
 }
 /* End of file main.php */

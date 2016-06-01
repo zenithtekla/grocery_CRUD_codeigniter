@@ -1,3 +1,4 @@
+/* global $*/
 $(function() {
 	$('div.spoiler-title').click(function() {
 		$(this)

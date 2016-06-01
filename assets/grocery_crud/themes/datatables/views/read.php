@@ -83,7 +83,7 @@
 <link rel="stylesheet" href="../../../../assets/grocery_crud/texteditor/ckeditor/plugins/spoiler/css/spoiler.css" type="text/css" />
 
 <!--(function(){
-src="jquery-1.11.1.min.js"
+src="jquery.min.js"
 src="jquery.mobile-1.4.5.min.js"
 src="key.js"
    window.onload = function(){

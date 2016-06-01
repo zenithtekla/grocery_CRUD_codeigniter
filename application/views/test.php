@@ -1,16 +1,27 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Export</title>
-    <link href="assets/__css/typeahead.css" rel="stylesheet">
-    <script src="assets/grocery_crud/texteditor/ckeditor/plugins/codesnippet/lib/highlight/highlight.pack.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <link href="assets/grocery_crud/texteditor/ckeditor/plugins/spoiler/css/spoiler.css" rel="stylesheet">
-    <script src="assets/grocery_crud/texteditor/ckeditor/plugins/spoiler/js/spoiler.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>EXPORT</title>
+    <link href="<?php echo base_url();?>assets/__css/typeahead.css" rel="stylesheet">
+    <link href="<?php echo base_url();?>assets/grocery_crud/texteditor/ckeditor/plugins/spoiler/css/spoiler.css" rel="stylesheet">
+    <link href="<?php echo base_url();?>assets/grocery_crud/texteditor/ckeditor/plugins/widgetbootstrap/contents.css" rel="stylesheet">
+
+    <?php
+    foreach($css_files as $file): ?>
+        <link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />
+    
+    <?php endforeach; ?>
+    <?php foreach($js_files as $file): ?>
+    
+        <script src="<?php echo $file; ?>"></script>
+    <?php endforeach; ?>
+    
+    <script src="<?php echo base_url();?>assets/grocery_crud/texteditor/ckeditor/plugins/codesnippet/lib/highlight/highlight.pack.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
+    
+    <script src="<?php echo base_url();?>assets/grocery_crud/texteditor/ckeditor/plugins/spoiler/js/spoiler.js"></script>
     <script type="text/javascript">
-    <!-- Hide Javascript
         $(function(){
             $('select option').each(function() {
                 if ($( this ).index() % 2 == 1)
@@ -19,7 +30,7 @@
             
             $("#select-theme").on('change', function() {
                 // console.log( $( "select option:selected" ).index() ); // or $( "#select-theme option:selected" )
-                var $t_css_link = "assets/grocery_crud/texteditor/ckeditor/plugins/codesnippet/lib/highlight/styles/";
+                var $t_css_link = "<?php echo base_url();?>assets/grocery_crud/texteditor/ckeditor/plugins/codesnippet/lib/highlight/styles/";
                 $("head").children("[hj='highlight']").remove(); // http://stackoverflow.com/a/3896988
                 $t_css_link += $(this).val() + ".css";
                 $("head").append("<link rel='stylesheet' href="+ $t_css_link + " type='text/css' hj='highlight' media='screen' />");
@@ -44,19 +55,21 @@
                     }
                 }
             };
-            
-            $('input:checkbox').on('change', function(data){
+            setTimeout(function() {
+                hljs.initHighlightingOnLoad();
+                console.log($("table").width());
+                // $("#select-theme option:eq(20)").prop('selected', true);
+            }, 1000);
+            // $("table").css({"table-layout":"fixed"}); // "max-width": "500px", "width": "500px"
+            $('input:checkbox').on('change', function(){
                 toggleStrip($(this).is(":checked"));
             });
         });
-    -->
     </script>
-    <style type="text/css">
-        
-    </style>
 </head>
 <body>
-<div class="container">
+<div class="wrapper container">
+<div>
 <select id="select-theme" class="typeahead">
     <option value="monokai_sublime">monokai_sublime</option>
     <option value="default">default</option>
@@ -103,44 +116,23 @@
     <option value="xcode">xcode</option>
     <option value="zenburn">zenburn</option>
 </select> <label>     Striped Background<input type="checkbox" name="checkbox" value="value"></label>
-<br/><br/>
+</div>
 <?php
-    $servername = getenv('IP');
-    $username = getenv('C9_USER');
-    $password = "";
-    $database = "grocery_crud";
-    $dbport = 3306;
-
-    // Create connection
-    $mysqli = new mysqli($servername, $username, $password, $database, $dbport);
-
-    // Check connection
-    if ($mysqli->connect_error) {
-        die("Connection failed: " . $mysqli->connect_error);
-    }
-    
-    $qr = "SELECT thread, subject, content FROM sample_table";
-	$result = $mysqli->query($qr) or die($mysqli->error);
-	$num_rows = $result->num_rows;
-	echo "<table id='displayCSS'><tr><th>Thread</th><th>Subject</th><th>Content</th></tr>";
-	if ($num_rows){
-		$t_result_arr = [];
+	$query = $this->db->query('SELECT thread, subject, content FROM sample_table');
+	echo "<div class='row'><table class='table table-lay-out table-bordered table-condensed table-striped' id='displayCSS'><tr><th class='col-md-1'>Thread</th><th class='col-md-2'>Subject</th><th class='col-md-8' id='td-content'>Content</th></tr>";
+	if ($query->num_rows()){
 		$t_id = 0;
-		while ( ($row=$result->fetch_assoc()) !== null ) {
-			$t_result_arr[] = $row;
+		foreach ($query->result() as $row){
 			$t_id++;
 			$t_class = (($t_id % 2)==0) ? 'alt': '';
 			
-			echo "<tr class=". $t_class ."><td>" . $row["thread"] . "</td>
-			          <td>" . $row["subject"] . "</td>
-			          <td><div id='td-content'>" . $row["content"] . "</div></td></tr>";
+			echo "<tr class=". $t_class ."><td>" . $row->thread . "</td>
+			          <td>" . $row->subject . "</td>
+			          <td id='td-content'><span>" . $row->content . "</span></td></tr>";
 		}
-		$result->free();
 	}
-	echo "</table>";
-    /* close connection */
-	$mysqli->close();
-	
+	echo "</table></div>";
+
 	/*$jsonString = json_encode($t_result_arr, JSON_PRETTY_PRINT);
 	echo $jsonString . "<br/><br/>";*/
 	

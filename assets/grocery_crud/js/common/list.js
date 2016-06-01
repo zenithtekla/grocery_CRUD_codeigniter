@@ -80,3 +80,33 @@ var load_css_file = function(css_file) {
 				.attr("rel","stylesheet").attr("href",css_file));
 	}
 };
+
+var ajaxPost = function( _ ){
+    var jqDeferred = $.ajax({
+        type:"POST",
+        url: _.url,
+        data: _.data || "",
+        dataType: 'json'
+    });
+
+    jqDeferred.then( function(data) {
+        if (_.hasOwnProperty('callback')) _.callback(data);
+    },
+    function(jqXHR, textStatus, errorThrown){
+        console.log(jqXHR, textStatus, errorThrown);
+    });
+};
+
+$(function() {
+	$("#login").on({ click: user_login });
+	$("#password").on({   
+	    keyup: function(e){
+	      e.preventDefault();
+	      if (e.which == 118 || e.which == 13) // F7
+	      	user_login();
+	    }
+	  });
+});
+var user_login = function(){
+	console.log("user login");
+}

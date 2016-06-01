@@ -2,33 +2,46 @@
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <link href="<?php echo base_url();?>assets/__css/typeahead.css" rel="stylesheet">
     <link href="<?php echo base_url();?>assets/grocery_crud/texteditor/ckeditor/plugins/spoiler/css/spoiler.css" rel="stylesheet">
     <link href="<?php echo base_url();?>assets/grocery_crud/texteditor/ckeditor/plugins/widgetbootstrap/contents.css" rel="stylesheet">
-    <!--<link href="<?php echo base_url();?>assets/grocery_crud/texteditor/ckeditor/plugins/codesnippet/lib/highlight/styles/default.css" rel="stylesheet">-->
+    
+    <?php
+foreach($css_files as $file): ?>
+    <link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />
+
+<?php endforeach; ?>
+<?php foreach($js_files as $file): ?>
+
+    <script src="<?php echo $file; ?>"></script>
+<?php endforeach; ?>
+    
     <script src="<?php echo base_url();?>assets/grocery_crud/texteditor/ckeditor/plugins/codesnippet/lib/highlight/highlight.pack.js"></script>
-    <script src="<?php echo base_url();?>assets/grocery_crud/texteditor/ckeditor/plugins/spoiler/js/spoiler.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
+    
+    <script src="<?php echo base_url();?>assets/grocery_crud/texteditor/ckeditor/plugins/spoiler/js/spoiler.js"></script>
     <script type="text/javascript">
     $(function(){
         $('select option').each(function() {
                 if ($( this ).index() % 2 == 1)
                     $( this ).css({"background-color":"#F0F0F0"});
             });
-
+        
         $('select').on({
             change: function() {
                 // console.log($('select > option:last').val());
                 // console.log( $( "select option:selected" ).index() ); // or $( "#select-theme option:selected" )
                 var $t_css_link = "<?php echo base_url();?>assets/grocery_crud/texteditor/ckeditor/plugins/codesnippet/lib/highlight/styles/";
                 // $('select').selectedIndex = this.index;
-                var $t_href = $t_css_link + $(this).val() + ".css"; // this.value works too
+                var $t_val = $(this).val();
+                if (isNaN($t_val) && typeof $t_val !== 'undefined' )
+                var $t_href = $t_css_link + $t_val + ".css"; // this.value works too
                 $("head").children("[hj='highlight']").remove();
+                if (typeof $t_href !== 'undefined' && $t_href)
                 $("head").append("<link href="+ $t_href + " hj='highlight' type='text/css' rel='stylesheet'/>");
             }
         }).change();
-
+        
         /*$("code").on('click', function() {
             $(this).addClass('source');
             $(this).append('<textarea>'+ $(this).text() + '</textarea>');
@@ -89,15 +102,6 @@
             display: none;
         }
     </style>
-<?php
-foreach($css_files as $file): ?>
-    <link type="text/css" rel="stylesheet" href="<?php echo $file; ?>" />
-
-<?php endforeach; ?>
-<?php foreach($js_files as $file): ?>
-
-    <script src="<?php echo $file; ?>"></script>
-<?php endforeach; ?>
 
 <style type='text/css'>
 body
@@ -115,6 +119,7 @@ a:hover
     text-decoration: underline;
 }
 </style>
+
 </head>
 <body>
 
@@ -167,7 +172,7 @@ a:hover
             <option value="zenburn">zenburn</option>
         </select>
         <label>     Striped Background<input type="checkbox" name="checkbox" value="value"></label>
-
+    <?php echo $date = date("Y-m-d H:i:s"); ?>
     </div>
 <!-- End of header-->
     <div style='height:20px;'></div>

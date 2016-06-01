@@ -10,6 +10,10 @@
 	$this->set_js_lib($this->default_javascript_path.'/jquery_plugins/jquery.noty.js');
 	$this->set_js_lib($this->default_javascript_path.'/jquery_plugins/config/jquery.noty.config.js');
 	$this->set_js_lib($this->default_javascript_path.'/common/lazyload-min.js');
+	
+	// bootstrap
+	$this->set_css($this->default_bower_path.grocery_CRUD::BOOTSTRAP.'/css/'.grocery_CRUD::BOOTSTRAP_CSS);
+	$this->set_js_lib($this->default_bower_path.grocery_CRUD::BOOTSTRAP.'/js/'.grocery_CRUD::BOOTSTRAP_JS);
 
 	if (!$this->is_IE7()) {
 		$this->set_js_lib($this->default_javascript_path.'/common/list.js');

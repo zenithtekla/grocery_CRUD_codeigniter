@@ -19,6 +19,7 @@ var aButtons = [];
 var mColumns = [];
 
 $(document).ready(function() {
+	if (typeof unset_export !== 'undefined' && typeof unset_print !== 'undefined'){
 
 	$('table.groceryCrudTable thead tr th').each(function(index){
 		if(!$(this).hasClass('actions'))
@@ -26,7 +27,7 @@ $(document).ready(function() {
 			mColumns[index] = index;
 		}
 	});
-
+	
 	if(!unset_export)
 	{
 		aButtons.push(    {
@@ -102,18 +103,20 @@ $(document).ready(function() {
 
 	loadListenersForDatatables();
 
-	$('a[role=button],button[role=button]').live("mouseover mouseout", function(event) {
-		  if ( event.type == "mouseover" ) {
-			  $(this).addClass('ui-state-hover');
-		  } else {
-			  $(this).removeClass('ui-state-hover');
-		  }
+	$('a[role=button],button[role=button]')
+	.on("mouseover", function(e) {
+		e.stopPropagation();
+	  	$(this).addClass('ui-state-hover');
+  	})
+  	.on("mouseout", function(e) {
+		  	$(this).removeClass('ui-state-hover');
 	});
 
 	$('th.actions').unbind('click');
 	$('th.actions>div .DataTables_sort_icon').remove();
 
-} );
+} 
+});
 
 function loadListenersForDatatables() {
 

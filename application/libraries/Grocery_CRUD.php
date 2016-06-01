@@ -2123,6 +2123,12 @@ class grocery_CRUD_Layout extends grocery_CRUD_Model_Driver
 			unset($js_files[sha1($this->default_theme_path.'/bootstrap/js/bootstrap/modal.min.js')]);
 			unset($css_files[sha1($this->default_theme_path.'/bootstrap/css/bootstrap/bootstrap.css')]);
 			unset($css_files[sha1($this->default_theme_path.'/bootstrap/css/bootstrap/bootstrap.min.css')]);
+			unset($js_files[sha1($this->default_bower_path.'/bootstrap/js/bootstrap/dropdown.js')]);
+			unset($js_files[sha1($this->default_bower_path.'/bootstrap/js/bootstrap/modal.js')]);
+			unset($js_files[sha1($this->default_bower_path.'/bootstrap/js/bootstrap/dropdown.min.js')]);
+			unset($js_files[sha1($this->default_bower_path.'/bootstrap/js/bootstrap/modal.min.js')]);
+			unset($css_files[sha1($this->default_bower_path.'/bootstrap/css/bootstrap/bootstrap.css')]);
+			unset($css_files[sha1($this->default_bower_path.'/bootstrap/css/bootstrap/bootstrap.min.css')]);
 		}
 
 		if($this->echo_and_die === false)
@@ -3422,9 +3428,12 @@ class Grocery_CRUD extends grocery_CRUD_States
 	 */
 	const	VERSION = "1.5.2";
 
-	const	JQUERY 			= "jquery-1.11.1.min.js";
+	const	JQUERY 			= "jquery.min.js";
 	const	JQUERY_UI_JS 	= "jquery-ui-1.10.3.custom.min.js";
 	const	JQUERY_UI_CSS 	= "jquery-ui-1.10.1.custom.min.css";
+	const 	BOOTSTRAP 		= "/bootstrap";
+	const	BOOTSTRAP_JS	= "bootstrap.min.js";
+	const	BOOTSTRAP_CSS	= "bootstrap.min.css";
 
 	protected $state_code 			= null;
 	protected $state_info 			= null;
@@ -3518,6 +3527,7 @@ class Grocery_CRUD extends grocery_CRUD_States
 	protected $default_language_path				= 'assets/grocery_crud/languages';
 	protected $default_config_path					= 'assets/grocery_crud/config';
 	protected $default_assets_path					= 'assets/grocery_crud';
+	protected $default_bower_path					= 'assets/grocery_crud/bower_components';
 
 	/**
 	 *
